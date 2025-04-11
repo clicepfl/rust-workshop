@@ -1,3 +1,5 @@
+#![allow(dead_code, unused_variables, clippy::all)]
+
 pub fn sum(elements: &Vec<i64>) -> i64 {
     let mut res = 0;
     for e in elements{
