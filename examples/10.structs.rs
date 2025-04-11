@@ -63,3 +63,18 @@ struct Color(u8, u8, u8);
 
 // Unit-like struct
 struct AlwaysEqual;
+
+// Type alias
+type Kilometers = i32;
+
+// Self type alias
+impl User {
+    fn new_user(email: String, username: String) -> Self {
+        Self {
+            active: true,
+            username,
+            email,
+            sign_in_count: 1,
+        }
+    }
+}
