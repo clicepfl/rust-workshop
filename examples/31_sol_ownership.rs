@@ -1,10 +1,14 @@
 #![allow(dead_code, unused_variables, clippy::all)]
 
-pub fn sum(elements: _) -> i64 {
-    todo!()
+pub fn sum(elements: &Vec<i64>) -> i64 {
+    let mut res = 0;
+    for e in elements{
+        res += e;
+    }
+    res
 }
 
-pub fn slice_after_n(elements: _, n: i64) -> _ {
+pub fn slice_after_n(elements: &Vec<i64>, n: i64) -> Option<&[i64]> {
     for (idx, val) in elements.iter().enumerate() {
         if *val == n {
             return Some(&elements[idx..])
@@ -14,7 +18,7 @@ pub fn slice_after_n(elements: _, n: i64) -> _ {
     None
 }
 
-pub fn merge(mut a: _, mut b: _) -> _ {
+pub fn merge(mut a: Vec<i64>, mut b: Vec<i64>) -> Vec<i64> {
     a.append(&mut b);
     a
 }

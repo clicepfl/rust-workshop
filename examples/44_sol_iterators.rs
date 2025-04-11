@@ -3,15 +3,20 @@
 use std::collections::HashMap;
 
 fn sum<I: Iterator<Item = i64>>(elements: I) -> i64 {
-    todo!()
+    elements.fold(0, |a, b| a + b)
 }
 
 fn get_elements_with_even_keys(elements: &HashMap<i64, String>) -> Vec<String> {
-    todo!()
+    elements
+        .iter()
+        .filter(|(k, _)| **k % 2 == 0)
+        .map(|(_, v)| v)
+        .cloned()
+        .collect()
 }
 
 fn first_word<I: Iterator<Item = char>>(chars: I) -> String {
-    todo!()
+    String::from_iter(chars.take_while(|c| !c.is_ascii_whitespace()))
 }
 
 #[cfg(test)]

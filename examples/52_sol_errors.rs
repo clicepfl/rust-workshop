@@ -19,50 +19,85 @@ pub struct Transfer {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct Account {
-    // TODO
+    name: String,
+    funds: u64,
 }
 
 impl Account {
     /// Create a new account, checking that the name as the correct size. If not, it returns the corresponding error.
     pub fn new(name: String, initial_funds: u64) -> Result<Self, Error> {
-        todo!()
+        if name.is_empty() {
+            return Err(Error::NameEmpty);
+        }
+
+        if name.len() > MAX_NAME_LENGTH {
+            return Err(Error::NameTooLong);
+        }
+
+        Ok(Self {
+            name,
+            funds: initial_funds,
+        })
     }
 
     /// Remove the given amount from the account, or returns an error if there is not enough funds.
     pub fn take(&mut self, amount: u64) -> Result<(), Error> {
-        todo!()
+        if amount <= self.funds {
+            self.funds -= amount;
+            Ok(())
+        } else {
+            Err(Error::NotEnoughFunds)
+        }
     }
 
     /// Add the given amount to the account.
     pub fn put(&mut self, amount: u64) {
-        todo!()
+        self.funds += amount
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct Bank {
-    // TODO
+    accounts: Vec<Account>,
 }
 
 impl Bank {
     pub fn new() -> Self {
-        todo!()
+        Self {
+            accounts: Default::default(),
+        }
     }
 
     /// Add a new account to the bank.
     pub fn add_account(&mut self, name: String, initial_funds: u64) -> Result<(), Error> {
-        todo!()
+        self.accounts.push(Account::new(name, initial_funds)?);
+        Ok(())
     }
 
     /// Find the account with the given name, if any. Returns a mutable reference.
     pub fn find_account(&mut self, name: &str) -> Result<&mut Account, Error> {
-        todo!()
+        self.accounts
+            .iter_mut()
+            .find(|a| a.name == *name)
+            .ok_or(Error::AccountNotFound)
     }
 
     /// Process all the transfer in the list. Each of them needs to be atomic, i.e. either the funds are fully moved or nothing is done.
     /// They need to be processed in the order given. Once a failure occurs, the function should stop and return the error.
     pub fn process_transfers(&mut self, transactions: Vec<Transfer>) -> Result<(), Error> {
-        todo!()
+        for Transfer { from, to, amount } in transactions {
+            self.find_account(&from)?.take(amount)?;
+
+            match self.find_account(&to) {
+                Ok(acc) => acc.put(amount),
+                Err(e) => {
+                    self.find_account(&from)?.put(amount);
+                    return Err(e);
+                }
+            }
+        }
+
+        Ok(())
     }
 }
 
