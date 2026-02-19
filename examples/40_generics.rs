@@ -29,21 +29,6 @@ impl<T> Add for Point<T> {
     }
 }
 
-// fn print<P: Display>(value: &P) {
-//     println!("{}", value);
-// }
-
-// impl<T: Add<Output = R>, R> Add for Point<T> {
-//     type Output = Point<R>;
-
-//     fn add(self, rhs: Self) -> Point<R> {
-//         Point {
-//             x: self.x + rhs.x,
-//             y: self.y + rhs.y,
-//         }
-//     }
-// }
-
 fn main() {
     let point_i32 = Point { x: 5_i32, y: 10 };
     let point_f32 = Point { x: 5_f32, y: 40.0 };

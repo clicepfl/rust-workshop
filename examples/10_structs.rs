@@ -36,8 +36,8 @@ fn build_user(email: String, username: String) -> User {
 
 impl User {
     // Method
-    fn email(&self) -> &String {
-        &self.email
+    fn active(&self) -> bool {
+        self.active
     }
 
     // Associated function
@@ -53,8 +53,8 @@ impl User {
 
 // Multiple impl blocks
 impl User {
-    fn username(&self) -> &String {
-        &self.username
+    fn sign_in_count(&self) -> u64 {
+        self.sign_in_count
     }
 }
 
