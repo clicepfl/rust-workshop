@@ -14,10 +14,12 @@ impl<T> Point<T> {
     }
 }
 
+// We need to ensure P implements display!
 fn print<P>(value: &P) {
     println!("{}", value);
 }
 
+// We need to ensure T implements Add!
 impl<T> Add for Point<T> {
     type Output = Point<T>;
 
