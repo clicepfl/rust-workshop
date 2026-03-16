@@ -24,7 +24,7 @@ fn main() {
     };
 }
 
-// Field init shorthand
+// To show/fix: Field init shorthand
 fn build_user(email: String, username: String) -> User {
     User {
         active: true,
