@@ -30,6 +30,7 @@ fn main() {
     // The first byte of the string is not a character
     let hello = "Здравствуйте";
     let h = &hello[0]; // "З" is actually 2 bytes
+    println!("{}", hello.len()); // 24 bytes, but only 12 characters
 
     // Slicing Strings
     let hello = String::from("hello");
