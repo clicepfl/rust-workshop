@@ -27,7 +27,7 @@ fn box_intro() {
 
 enum LinkedListNode {
     None,
-    // This causes an error, because the memory footprint of LinkedListNode is unknowable
+    // This would cause an error, since LinkedListNode contains itself, and so it has an infinite memory footprint
     //Next(i32, LinkedListNode)
     // Instead, we can do this
     Next(i32, Box<LinkedListNode>)   // It works, because Box is just a pointer, it has a fixed size

@@ -7,7 +7,8 @@ use std::cmp::max;
 struct Node {
     value: u32,
 
-    // Is this the right type? Why not just use a reference? How do we model empty nodes?
+    // The children should be some variant of Node.
+    // Think: Why shouldn't we use a reference? How do we model nodes without children?
     left_child: Option<Box<Node>>,
     right_child: Option<Box<Node>>,
 }

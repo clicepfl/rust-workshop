@@ -7,27 +7,17 @@ use std::cmp::max;
 struct Node {
     value: u32,
 
-    // Is this the right type? Why not use a reference? How do we model nodes without children?
-    left_child: Node,
-    right_child: Node,
+    // The children should be some variant of Node.
+    // Think: Why shouldn't we use a reference? How do we model nodes without children?
+    left_child: ???,
+    right_child: ???,
 }
 impl Node {
     /*
     * Get the largest node below you in the tree, recursively
-    * Return 0 by default
     */
     pub fn largest_child(&self) -> u32 {
-        // Revisions on destructuring
-        let left_val = match &self.left_child {
-            ??? => ???.largest_child(),
-            ??? => 0
-        };
-        let right_val = match &self.right_child {
-            ??? => ???.largest_child(),
-            ??? => 0
-        };
-
-        max(self.value, max(left_val, right_val))
+        todo!()
     }
 
     /*
