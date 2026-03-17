@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use std::fmt::Debug;
 use std::rc::Rc;
 
@@ -9,7 +11,7 @@ fn greet(person: &Person) {
     // The compiler automatically dereferences things when needed
     println!("hello {}", person.name);
     println!("hello again {}", (*person).name);
-    //println!("goodbye {}", person.deref().name); // Also possible but bad
+    //println!("goodbye {}", person.deref().name); // Also possible but rarely useful
 }
 
 // Smart pointers: safe way to access data on the heap
@@ -62,28 +64,9 @@ fn box_dyn() {
 
 
 
-// Rc: A shared smart pointer (Reference-counting pointer)
-fn rc_demo() {
-    let my_value = Rc::new(5);
-    let val1 = Rc::clone(&my_value);
-
-    // Since there are >1 pointers pointing at our value, they only have read access
-    println!("{my_value} {val1}");
-    // Error:
-    //val1 += 1;
-
-    drop(my_value);
-    // Even though the original went out of scope, the value is still here
-    println!("{val1}");
-    // We can use Rc<Mutex<_>> instead to be able to modify the value as well, but that's beyond
-    // the scope of today
-}
-
-
 fn main() {
     box_intro();
     linked_list();
     box_dyn();
-    rc_demo();
 }
 
