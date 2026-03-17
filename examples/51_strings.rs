@@ -29,7 +29,7 @@ fn main() {
 
     // The first byte of the string is not a character
     let hello = "Здравствуйте";
-    let answer = &hello[0]; // "З" is actually 2 bytes
+    let h = &hello[0]; // "З" is actually 2 bytes
 
     // Slicing Strings
     let hello = String::from("hello");
