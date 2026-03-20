@@ -10,6 +10,10 @@ h1, h2, li {
   text-align: center;
 }
 
+li {
+  margin-bottom: 50px;
+}
+
 ul {
   margin: 10px;
   display: flex;
@@ -34,7 +38,7 @@ a {
   background-color: #282D3F;
   border-radius: 16px;
 
-  transition: transform 0.1s ease;
+  transition: transform 0.3s ease;
 
   color: #F74C00;
 }
@@ -44,7 +48,7 @@ ul a {
 }
 
 a:hover {
-  transform: rotate(1deg);
+  transform: scale(1.1);
 
   text-decoration: underline;
 }
@@ -53,5 +57,4 @@ h2 {
   justify-content: center;
   display: flex;
 }
-
 
