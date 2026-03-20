@@ -1,6 +1,9 @@
-body {
+html, body {
   background-color: #161923;
   color: #BCBDD0;
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
 }
 
 h1, h2, li {
@@ -50,4 +53,5 @@ h2 {
   justify-content: center;
   display: flex;
 }
+
 
