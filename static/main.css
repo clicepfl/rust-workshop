@@ -3,7 +3,7 @@ body {
   color: #BCBDD0;
 }
 
-h1, li {
+h1, h2, li {
   text-align: center;
 }
 
@@ -15,7 +15,7 @@ ul {
   padding: 0;
 }
 
-ul a {
+a {
   margin: 0;
   width: 100%;
   max-width: 500px;
@@ -33,13 +33,21 @@ ul a {
 
   transition: transform 0.1s ease;
 
+  color: #F74C00;
+}
+
+ul a {
   color: #2F6AB5;
 }
 
-ul a:hover {
+a:hover {
   transform: rotate(1deg);
 
   text-decoration: underline;
 }
 
+h2 {
+  justify-content: center;
+  display: flex;
+}
 
