@@ -4,6 +4,8 @@ html, body {
   min-width: 100vw;
   min-height: 100vh;
   margin: 0;
+
+  font-family: 'Sans-Serif';
 }
 
 h1, h2, li {
