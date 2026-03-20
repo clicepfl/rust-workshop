@@ -1,0 +1,45 @@
+body {
+  background-color: #161923;
+  color: #BCBDD0;
+}
+
+h1, li {
+  text-align: center;
+}
+
+ul {
+  margin: 10px;
+  display: flex;
+
+  justify-content: center;
+  padding: 0;
+}
+
+ul a {
+  margin: 0;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  text-decoration: none;
+
+  box-shadow: #111111 3px 3px 15px;
+  background-color: #282D3F;
+  border-radius: 16px;
+
+  transition: transform 0.1s ease;
+
+  color: #2F6AB5;
+}
+
+ul a:hover {
+  transform: rotate(1deg);
+
+  text-decoration: underline;
+}
+
+
